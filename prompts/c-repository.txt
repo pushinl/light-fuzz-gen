@@ -1,0 +1,37 @@
+<system>
+Hello! I need you to write a fuzzing harness. The target codebase is written purely in the C language so the harness should be in pure C.
+
+The Codebase we are targeting is located in the github repository {target_repo}.
+
+The harness should be in libFuzzer style, with the code wrapped in <code>int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)</code>. Specifically, do not include `extern "C"` in the fuzzer code.
+
+The functions we're fuzzing and corresponding types are included in the following header files: 
+<header>
+{target_header_files}
+</header>
+Please include these files in the target harness. Before fuzzing, you should make sufficient preparations to ensure that the entire fuzzing process proceeds smoothly.
+
+I would like for you to write the harness targeting the functions 
+<code>
+{functions}
+</code>
+
+The signature of the functions are:
+<function signature>
+{function_signatures}
+</function signature>
+
+Additional infomation is: 
+<additional>
+{additional}
+</additional>
+
+These functions should be called in a logical manner. Please read the code from github repository carefully to know how to use these functions. After that, you should analyze how the function is called to identify the potential vulnerabilities, thereby increasing the function coverage.
+
+The most important part of the harness is that it will build and compile correctly against the target code. Please focus on making the code as simple as possible in order to secure it can be build. Additionally, you should ensure that no resource conflict issues will arise when multi-threaded fuzzing. If conflict, you should use process id in resource name.
+
+You MUST organize <code>
+{functions}
+</code> logically in your solution! Before generate code, please show your chain of thought.
+
+<solution>

@@ -60,7 +60,10 @@ class ConfigHandler:
             "language": config.get("language", "c"),
             "target_name": config.get("target_name", "fuzz_target"),
             "target_path": config.get("target_path", ""),
-            "functions": functions
+            "target_repo": config.get("target_repo", ""),
+            "target_header_files": config.get("target_header_files", []),
+            "functions": functions,
+            "additional": config.get("additional", "")
         }
         
         return project_info
@@ -72,13 +75,18 @@ class ConfigHandler:
         filled_template = filled_template.replace("{project_name}", project_info.get("project_name", "unknown"))
         filled_template = filled_template.replace("{language}", project_info.get("language", "c"))
         filled_template = filled_template.replace("{target_name}", project_info.get("target_name", "fuzz_target"))
+        filled_template = filled_template.replace("{target_repo}", project_info.get("target_repo", ""))
+        filled_template = filled_template.replace("{additional}", project_info.get("additional", ""))
         
         # 处理多个函数的信息
         functions = project_info.get("functions", [])
         
         # 创建函数列表的JSON字符串
-        functions_json = json.dumps(functions, indent=2)
-        filled_template = filled_template.replace("{functions_json}", functions_json)
+        # functions_json = json.dumps(functions, indent=2)
+        # filled_template = filled_template.replace("{functions_json}", functions_json)
+        functions_ = list(map(lambda f: f.get("name", "unknown"), functions))
+        filled_template = filled_template.replace("{functions}", ", ".join(functions_))
+        filled_template = filled_template.replace("{target_header_files}", "\n".join(project_info.get("target_header_files", [])))
         
         # 创建函数签名列表
         function_signatures = []

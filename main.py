@@ -15,7 +15,7 @@ HARNESS_DIR = "harness"
 
 # 模板文件名
 SINGLE_FUNCTION_TEMPLATE = "build_harness.txt"
-MULTI_FUNCTION_TEMPLATE = "multi_function_harness.txt"
+MULTI_FUNCTION_TEMPLATE = "c-repository.txt"
 
 def handle_multi_function_mode(benchmark_config: dict, config_handler: ConfigHandler, model_agent: ModelAgent, logger: Logger, file_handler: FileHandler):
 	"""处理多函数模式，同时处理多个相关函数"""
