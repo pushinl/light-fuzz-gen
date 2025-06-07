@@ -20,10 +20,11 @@ light-fuzz-gen/
 ├── harness/                 # 生成的 Harness 代码输出目录
 ├── logs/                    # 日志输出目录
 ├── prompts/                 # 存放prompt模板
-│   └── multi_function_harness.txt
 ├── main.py                  # 主程序入口
 ├── README.md                # 项目说明文档
+├── .env                     # 环境变量配置
 └── .gitignore               # Git 忽略配置
+
 ```
 
 ## 使用方法
@@ -54,44 +55,27 @@ python main.py cups  # 使用 benchmark-sets/cups.yaml 配置文件
 在 `benchmark-sets` 目录下创建 YAML 格式的配置文件，例如:
 
 ```yaml
-functions:
-  - name: ippReadIO
-    params:
-      - name: src
-        type: void *
-      - name: cb
-        type: ipp_io_cb_t
-      - name: blocking
-        type: int
-      - name: parent
-        type: ipp_t *
-      - name: ipp
-        type: ipp_t *
-    return_type: ipp_state_t
-    signature: ipp_state_t ippReadIO(void *, ipp_io_cb_t, int, ipp_t *, ipp_t *)
-  - name: cupsFileOpen
-    params:
-      - name: filename
-        type: const char *
-      - name: mode
-        type: const char *
-    return_type: cups_file_t *
-    signature: cups_file_t * cupsFileOpen(const char *, const char *)
-  - name: cupsFileClose
-    params:
-      - name: fp
-        type: cups_file_t *
-    return_type: int
-    signature: int cupsFileClose(cups_file_t *)
-language: c
-project: cups
-target_name: fuzz_ipp_gen
-target_path: /src/cups/ossfuzz/fuzz_ipp_gen.c
+"functions":
+  - "name": "ippReadIO"
+    "signature": "ipp_state_t ippReadIO(void *, ipp_io_cb_t, int, ipp_t *, ipp_t *);"
+  - "name": "cupsFileOpen"
+    "signature": "cups_file_t * cupsFileOpen(const char *, const char *);"
+  - "name": "cupsFileClose"
+    "signature": "int cupsFileClose(cups_file_t *);"
+  - "name": "cupsFileRead"
+    "signature": "ssize_t cupsFileRead(cups_file_t *fp, char *buf, size_t bytes);"
+"additional": "When calling ippReadIO, you should use cupsFileRead in parameter list."
+"language": "c"
+"project": "cups"
+"target_name": "fuzz_ipp_gen"
+"target_repo": "https://github.com/OpenPrinting/cups"
+"target_path": "/src/cups/ossfuzz/fuzz_ipp_gen.c"
+"target_header_files": ["cups/ipp.h", "file.h"]
 ```
 
 ## 提示模板
 
-提示模板位于 `prompts/multi_function_harness.txt`，其中使用 `{placeholder}` 格式的占位符，会被实际的函数信息替换。
+提示模板位于 `prompts/`，其中使用 `{placeholder}` 格式的占位符，会被实际的函数信息替换。
 
 ## 多函数处理
 

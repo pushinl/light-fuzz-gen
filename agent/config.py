@@ -40,15 +40,6 @@ class ConfigHandler:
                 "return_type": func.get("return_type", "void"),
             }
             
-            # 处理参数信息
-            if "params" in func:
-                # 参数是详细的对象列表
-                params = func["params"]
-                param_types = [param.get("type", "void") for param in params]
-                param_names = [param.get("name", f"param{i}") for i, param in enumerate(params)]
-                function_info["param_types"] = param_types
-                function_info["param_names"] = param_names
-            
             # 添加包含文件
             function_info["includes"] = func.get("includes", [])
             
@@ -68,7 +59,7 @@ class ConfigHandler:
         
         return project_info
     
-    def prepare_multi_function_prompt(self, template, project_info):
+    def prepare_prompt(self, template, project_info):
         """准备包含多个函数的prompt模板"""
         # 基本项目信息
         filled_template = template

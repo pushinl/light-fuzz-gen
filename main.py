@@ -13,24 +13,22 @@ PROMPTS_DIR = "prompts"
 BENCHMARKS_DIR = "benchmark-sets"
 HARNESS_DIR = "harness"
 
-# 模板文件名
-SINGLE_FUNCTION_TEMPLATE = "build_harness.txt"
-MULTI_FUNCTION_TEMPLATE = "c-repository.txt"
+# 提示模板文件名
+PROMPT_TEMPLATE = "c-repository.txt"
 
-def handle_multi_function_mode(benchmark_config: dict, config_handler: ConfigHandler, model_agent: ModelAgent, logger: Logger, file_handler: FileHandler):
-	"""处理多函数模式，同时处理多个相关函数"""
-	# 加载多函数prompt模板
-	prompt_template = config_handler.load_prompt_template(MULTI_FUNCTION_TEMPLATE)
+def generate_harness(benchmark_config: dict, config_handler: ConfigHandler, model_agent: ModelAgent, logger: Logger, file_handler: FileHandler):
+	"""同时处理配置中的多个相关函数"""
+
+	prompt_template = config_handler.load_prompt_template(PROMPT_TEMPLATE)
 	
 	# 提取所有函数信息
 	project_info = config_handler.extract_functions_info(benchmark_config)
 	target_name = project_info.get("target_name", "fuzz_target")
 	
-	# 记录处理开始
 	logger.log(target_name, "开始处理", f"处理项目: {project_info.get('project_name')} 的多个函数")
 	
-	# 准备多函数的prompt
-	filled_prompt = config_handler.prepare_multi_function_prompt(prompt_template, project_info)
+	# 准备prompt
+	filled_prompt = config_handler.prepare_prompt(prompt_template, project_info)
 	logger.log(target_name, "生成的Prompt", filled_prompt)
 	
 	# 调用大模型API
@@ -45,7 +43,7 @@ def handle_multi_function_mode(benchmark_config: dict, config_handler: ConfigHan
 		if harness_code:
 			# 保存harness代码到文件
 			language = project_info.get("language", "c")
-			harness_file_path = file_handler.save_multi_function_harness(target_name, harness_code, language)
+			harness_file_path = file_handler.save_harness(target_name, harness_code, language)
 			logger.log(target_name, "完成", f"Harness代码已保存到 {harness_file_path}")
 		else:
 			logger.log(target_name, "失败", "未能从响应中提取有效代码")
@@ -72,8 +70,7 @@ def main():
 		# 加载benchmark配置
 		benchmark_config = config_handler.load_benchmark_config(benchmark_set)
 		
-		# 处理多函数模式
-		handle_multi_function_mode(benchmark_config, config_handler, model_agent, logger, file_handler)
+		generate_harness(benchmark_config, config_handler, model_agent, logger, file_handler)
 		
 	except FileNotFoundError as e:
 		print(f"错误: {str(e)}")

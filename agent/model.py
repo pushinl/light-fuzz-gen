@@ -12,7 +12,7 @@ class ModelAgent:
     def __init__(self, api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL):
         self.model = OpenAI(api_key=api_key, base_url=base_url)
     
-    def call_api(self, prompt, model_name="gpt-4o", temperature=0.7):
+    def call_api(self, prompt, model_name="gpt-4o", temperature=0.4):
         """调用大模型API并获取响应"""
         try:
             response = self.model.chat.completions.create(

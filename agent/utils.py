@@ -45,7 +45,7 @@ class FileHandler:
         
         return file_path
         
-    def save_multi_function_harness(self, target_name, code, language="c"):
+    def save_harness(self, target_name, code, language="c"):
         """保存多函数harness代码到文件
         
         Args:
