@@ -32,7 +32,7 @@ def generate_harness(benchmark_config: dict, config_handler: ConfigHandler, mode
 	logger.log(target_name, "生成的Prompt", filled_prompt)
 	
 	# 调用大模型API
-	response = model_agent.call_api(filled_prompt)
+	response = model_agent.call_api(filled_prompt, model_name="gpt-4o", temperature=0.4)
 	logger.log(target_name, "大模型响应", response if response else "API调用失败")
 	
 	if response:

@@ -1,0 +1,17 @@
+"functions":
+  - "name": "ppdOpenFile"
+    "signature": "ppd_file_t *ppdOpenFile(const char *filename);"
+  - "name": "ppdClose"
+    "signature": "void ppdClose(ppd_file_t *ppd);"
+  - "name": "ppdMarkDefaults"
+    "signature": "void ppdMarkDefaults(ppd_file_t *ppd);"
+  - "name": "ppdConflicts"
+    "signature": "int ppdConflicts(ppd_file_t *ppd);"
+  - "name": "cupsMarkOptions"
+    "signature": "int cupsMarkOptions(ppd_file_t *ppd, int num_options, cups_option_t *options);"
+"language": "c"
+"project": "cups"
+"target_name": "fuzz_ppd_gen1"
+"target_repo": "https://github.com/OpenPrinting/cups"
+"target_path": "/src/cups/ossfuzz/fuzz_ppd_gen1.c"
+"target_header_files": ["ppd.h", "cups.h", "file-private.h"]
