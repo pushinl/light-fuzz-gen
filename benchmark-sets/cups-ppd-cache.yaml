@@ -11,11 +11,13 @@
     "signature": "int _ppdCacheWriteFile(_ppd_cache_t *pc, const char *filename, ipp_t *attrs);"
   - "name": "_ppdCacheCreateWithFile"
     "signature": "_ppd_cache_t *_ppdCacheCreateWithFile(const char *filename, ipp_t *attrs);"
+  - "name": "_ppdCacheGetBin"
+    "signature": "const char *_ppdCacheGetBin(_ppd_cache_t *pc, const char *output_bin);"
   - "name": "_ppdCacheGetPageSize"
     "signature": "const char *_ppdCacheGetPageSize(_ppd_cache_t *pc, ipp_t *job, const char *option, int *exact);"
 "language": "c"
 "project": "cups"
-"target_name": "fuzz_ppd_gen5"
+"target_name": "fuzz_ppd_gen_cache"
 "target_repo": "https://github.com/OpenPrinting/cups"
-"target_path": "/src/cups/ossfuzz/fuzz_ppd_gen5.c"
-"target_header_files": ["ppd.h", "ppd-private.h", "cups.h", "ipp.h", "file-private.h"]
+"target_path": "/src/cups/ossfuzz/fuzz_ppd_gen_cache.c"
+"target_header_files": ["ppd.h", "cups.h", "ipp.h", "file-private.h"]

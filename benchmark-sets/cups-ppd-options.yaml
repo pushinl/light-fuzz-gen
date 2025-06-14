@@ -13,7 +13,7 @@
     "signature": "int ppdInstallableConflict(ppd_file_t *ppd, const char *option, const char *choice);"
 "language": "c"
 "project": "cups"
-"target_name": "fuzz_ppd_gen2"
+"target_name": "fuzz_ppd_gen_options"
 "target_repo": "https://github.com/OpenPrinting/cups"
-"target_path": "/src/cups/ossfuzz/fuzz_ppd_gen2.c"
+"target_path": "/src/cups/ossfuzz/fuzz_ppd_gen_options.c"
 "target_header_files": ["ppd.h", "cups.h", "file-private.h"]
