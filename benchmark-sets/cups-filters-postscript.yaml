@@ -1,0 +1,18 @@
+"functions":
+  - "name": "ppdFilterCUPSWrapper"
+    "signature": "int ppdFilterCUPSWrapper(int argc, char *argv[], cf_filter_filter_func_t filter_func, void *parameters, int *JobCanceled);"
+  - "name": "ppdFilterPSToPS"
+    "signature": "int ppdFilterPSToPS(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "ppdFilterPDFToPS"
+    "signature": "int ppdFilterPDFToPS(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "ppdFilterRasterToPS"
+    "signature": "int ppdFilterRasterToPS(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "ppdFilterImageToPS"
+    "signature": "int ppdFilterImageToPS(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+"additional": "PostScript处理过滤器链，支持各种格式到PostScript的转换，包括PS到PS、PDF到PS、光栅到PS和图像到PS。"
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_postscript"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_postscript.c"
+"target_header_files": ["cupsfilters/filter.h", "ppd/ppd-filter.h", "signal.h"]

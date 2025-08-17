@@ -1,0 +1,16 @@
+"functions":
+  - "name": "ppdFilterCUPSWrapper"
+    "signature": "int ppdFilterCUPSWrapper(int argc, char *argv[], cf_filter_filter_func_t filter_func, void *parameters, int *JobCanceled);"
+  - "name": "cfFilterTextToPDF"
+    "signature": "int cfFilterTextToPDF(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterTextToText"
+    "signature": "int cfFilterTextToText(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterBannerToPDF"
+    "signature": "int cfFilterBannerToPDF(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+"additional": "基本的文本和横幅处理过滤器，使用ppdFilterCUPSWrapper作为统一入口点。"
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_cf_basic"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_cf_basic.c"
+"target_header_files": ["cupsfilters/filter.h", "ppd/ppd-filter.h", "signal.h"]

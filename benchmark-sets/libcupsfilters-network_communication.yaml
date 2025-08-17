@@ -1,0 +1,16 @@
+"functions":
+  - "name": "get_filename_for_profile_path"
+    "signature": "char * get_filename_for_profile_path(cf_filter_data_t *data, DBusConnection *con, const char *object_path);"
+  - "name": "get_profile_for_device_path"
+    "signature": "char * get_profile_for_device_path(cf_filter_data_t *data, DBusConnection *con, const char *object_path, const char **split);"
+  - "name": "get_device_path_for_device_id"
+    "signature": "char * get_device_path_for_device_id(cf_filter_data_t *data, DBusConnection *con, const char *device_id);"
+  - "name": "get_profile_inhibitors"
+    "signature": "int get_profile_inhibitors(cf_filter_data_t *data, DBusConnection *con, const char *object_path);"
+"additional": "get_filename_for_profile_path: This function retrieves the filename for a profile path using D-Bus communication with the ColorManager service.; get_profile_for_device_path: This function retrieves a color profile for a given device path using D-Bus communication.; get_device_path_for_device_id: This function retrieves the device path for a given device ID by making a synchronous DBus method call to the ColorManager service."
+"language": "c"
+"project": "libcupsfilters"
+"target_name": "fuzz_network_communication"
+"target_repo": "https://github.com/OpenPrinting/libcupsfilters"
+"target_path": "/src/libcupsfilters/ossfuzz/fuzz_network_communication.c"
+"target_header_files": ["string.h", "stdio.h", "stdlib.h"]

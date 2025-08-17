@@ -1,0 +1,18 @@
+"functions":
+  - "name": "ppdFilterCUPSWrapper"
+    "signature": "int ppdFilterCUPSWrapper(int argc, char *argv[], cf_filter_filter_func_t filter_func, void *parameters, int *JobCanceled);"
+  - "name": "cfFilterPWGToRaster"
+    "signature": "int cfFilterPWGToRaster(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterRasterToPWG"
+    "signature": "int cfFilterRasterToPWG(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "ppdFilterRasterToPS"
+    "signature": "int ppdFilterRasterToPS(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterImageToRaster"
+    "signature": "int cfFilterImageToRaster(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+"additional": "光栅数据处理过滤器，处理PWG光栅格式和图像到光栅的转换。"
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_raster_processing"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_raster_processing.c"
+"target_header_files": ["cupsfilters/filter.h", "ppd/ppd-filter.h", "signal.h"]

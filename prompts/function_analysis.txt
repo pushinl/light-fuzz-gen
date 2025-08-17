@@ -1,0 +1,46 @@
+You are a professional C/C++ code analysis expert. Please analyze the functionality and characteristics of the following function.
+
+## Target Function for Analysis:
+Function Name: {function_name}
+Function Signature: {function_signature}
+File Path: {file_path}
+Function Body Summary: {function_body}
+
+## Analysis Requirements:
+Please provide the following information:
+
+1. **Function Summary**: Summarize the main functionality of the function in one sentence
+2. **Function Classification**: Classify the function into one of the following categories:
+   - File Operations (file_operations)
+   - Memory Management (memory_management)  
+   - String Processing (string_processing)
+   - Network Communication (network_communication)
+   - Data Parsing (data_parsing)
+   - Error Handling (error_handling)
+   - Initialization/Cleanup (initialization_cleanup)
+   - Format Conversion (format_conversion)
+   - Configuration Management (configuration_management)
+   - Debug/Logging (debug_logging)
+   - Other (other)
+
+3. **Dependencies**: Identify other function names directly called by this function (up to 5)
+4. **Related Functions**: Infer functions that might work cooperatively with this function (based on function name patterns and functionality)
+
+## Output Format:
+Please strictly return the analysis results in the following JSON format:
+
+```json
+{
+    "summary": "one_sentence_summary_of_function_functionality",
+    "category": "function_classification_using_one_of_the_above_categories",
+    "dependencies": ["dependency_function1", "dependency_function2", "..."],
+    "related_functions": ["related_function1", "related_function2", "..."]
+}
+```
+
+## Notes:
+- Summary should be concise and clear, no more than 50 words
+- Classification must use the provided standard categories
+- Dependencies only include function calls that can be clearly seen in the code
+- Related functions are inferred based on function name prefixes, suffixes, or functionality
+- All array fields should be included in JSON even if empty

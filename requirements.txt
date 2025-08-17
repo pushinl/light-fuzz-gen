@@ -1,3 +1,13 @@
+# 代理工作流依赖包
 openai>=1.0.0
-pyyaml>=6.0
-python-dotenv>=1.0.0 
+PyYAML>=6.0
+tree-sitter>=0.20.1
+tree-sitter-c>=0.20.2
+pycparser>=2.21
+pathlib2>=2.3.7
+dataclasses>=0.6; python_version<"3.7"
+python-dotenv>=1.0.0
+
+# 可选依赖
+requests>=2.28.0
+aiohttp>=3.8.0

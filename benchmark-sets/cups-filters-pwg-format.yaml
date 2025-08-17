@@ -1,0 +1,18 @@
+"functions":
+  - "name": "ppdFilterCUPSWrapper"
+    "signature": "int ppdFilterCUPSWrapper(int argc, char *argv[], cf_filter_filter_func_t filter_func, void *parameters, int *JobCanceled);"
+  - "name": "cfFilterPWGToPDF"
+    "signature": "int cfFilterPWGToPDF(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterPWGToRaster"
+    "signature": "int cfFilterPWGToRaster(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterRasterToPWG"
+    "signature": "int cfFilterRasterToPWG(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterPCLmToRaster"
+    "signature": "int cfFilterPCLmToRaster(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+"additional": "PWG格式处理过滤器，支持PWG光栅格式与PDF、普通光栅和PCLm格式之间的相互转换。"
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_pwg_format"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_pwg_format.c"
+"target_header_files": ["cupsfilters/filter.h", "ppd/ppd-filter.h", "signal.h"]

@@ -1,0 +1,61 @@
+You are a professional C/C++ code analysis expert. Please perform batch analysis of the following multiple functions' functionality and characteristics.
+
+## Target Function List for Analysis:
+{functions_list}
+
+## Analysis Requirements:
+For each function, please provide the following information:
+
+1. **Function Summary**: Summarize the main functionality of the function in one sentence
+2. **Function Classification**: Classify the function into one of the following categories:
+   - file_operations (File operations)
+   - memory_management (Memory management)
+   - string_processing (String processing)
+   - network_communication (Network communication)
+   - data_parsing (Data parsing)
+   - error_handling (Error handling)
+   - initialization_cleanup (Initialization/cleanup)
+   - format_conversion (Format conversion)
+   - configuration_management (Configuration management)
+   - debug_logging (Debug/logging)
+   - filter_processing (Filter processing)
+   - printer_management (Printer management)
+   - other (Other)
+
+3. **Function Relationships**: Identify calling relationships with other functions
+4. **Fuzzing Value**: Assess the value of this function for fuzzing (high/medium/low)
+
+## Output Format:
+Please strictly return the analysis results for all functions in the following JSON format:
+
+```json
+{
+    "functions": [
+        {
+            "name": "function_name",
+            "summary": "functionality_summary",
+            "category": "classification_label", 
+            "relationships": ["related_function1", "related_function2"],
+            "fuzz_value": "high/medium/low"
+        }
+    ],
+    "suggested_groups": [
+        {
+            "group_name": "logical_group_name",
+            "functions": ["function1", "function2", "function3"],
+            "description": "group_description"
+        }
+    ]
+}
+```
+
+## Grouping Suggestion Principles:
+- Group functionally related functions
+- Each group contains 3-6 functions
+- Ensure functions within a group have logical calling relationships
+- Prioritize function combinations with data flow
+
+## Notes:
+- Keep analysis concise and accurate
+- Focus on dependencies between functions
+- Consider actual fuzzing requirements

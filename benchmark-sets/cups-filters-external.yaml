@@ -1,0 +1,18 @@
+"functions":
+  - "name": "ppdFilterCUPSWrapper"
+    "signature": "int ppdFilterCUPSWrapper(int argc, char *argv[], cf_filter_filter_func_t filter_func, void *parameters, int *JobCanceled);"
+  - "name": "cfFilterExternal"
+    "signature": "int cfFilterExternal(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "ppdFilterExternalCUPS"
+    "signature": "int ppdFilterExternalCUPS(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "getenv"
+    "signature": "char *getenv(const char *name);"
+  - "name": "sigaction"
+    "signature": "int sigaction(int sig, const struct sigaction *act, struct sigaction *oact);"
+"additional": "外部过滤器包装器，支持调用CUPS过滤器和后端，包括环境变量处理和信号管理。"
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_external"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_external.c"
+"target_header_files": ["cupsfilters/filter.h", "ppd/ppd-filter.h", "signal.h", "config.h"]

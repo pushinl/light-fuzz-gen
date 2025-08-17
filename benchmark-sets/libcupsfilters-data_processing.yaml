@@ -1,0 +1,12 @@
+"functions":
+  - "name": "compare_choices"
+    "signature": "int compare_choices(void *a, void *b, void *user_data);"
+  - "name": "cfCUPSIsCanceledFunc"
+    "signature": "int cfCUPSIsCanceledFunc(void *data);"
+"additional": "compare_choices: This function compares two choices based on their names using a case-insensitive comparison.; cfCUPSIsCanceledFunc: This function checks if the value pointed to by the data parameter is not equal to 0 and returns 1 if true, 0 otherwise."
+"language": "c"
+"project": "libcupsfilters"
+"target_name": "fuzz_data_processing"
+"target_repo": "https://github.com/OpenPrinting/libcupsfilters"
+"target_path": "/src/libcupsfilters/ossfuzz/fuzz_data_processing.c"
+"target_header_files": ["string.h", "stdio.h", "stdlib.h"]

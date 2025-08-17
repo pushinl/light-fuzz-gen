@@ -1,0 +1,47 @@
+You are a professional fuzzing configuration expert. Please generate YAML configuration files for fuzzing based on the provided function analysis results.
+
+## Input Data:
+Project Name: {project_name}
+Target Repository: {target_repo}
+Function Groups: {function_group}
+Function Details: {function_details}
+
+## YAML Configuration Requirements:
+
+### 1. Function Selection Principles:
+- Each YAML file contains 3-6 related functions
+- Functions should have logical calling relationships
+- Must include initialization and cleanup functions (if they exist)
+- Prioritize functions with clear inputs and outputs
+
+### 2. Function Call Chain Design:
+- Initialization functions → Core processing functions → Cleanup functions
+- Create resources → Use resources → Release resources
+- Open files/connections → Read/write operations → Close files/connections
+
+### 3. YAML Format Specification:
+```yaml
+"functions":
+  - "name": "function_name"
+    "signature": "complete_function_signature_including_return_type_and_parameters"
+"additional": "brief_description_of_logical_relationships_and_calling_order_between_functions"
+"language": "c"
+"project": "project_name"
+"target_name": "fuzz_module_name"
+"target_repo": "GitHub_repository_URL"
+"target_path": "/src/project_name/ossfuzz/fuzz_module_name.c"
+"target_header_files": ["header_file1", "header_file2"]
+```
+
+## Generation Requirements:
+1. **Logical Relationships**: Ensure selected functions have clear calling logic
+2. **Header File Inference**: Infer required header files based on function source files
+3. **Module Naming**: target_name should reflect the functional characteristics of the function group
+4. **Path Standards**: target_path follows standard OSS-Fuzz path format
+
+## Output Format:
+Please generate a complete YAML configuration for each function group, ensuring:
+- Function signatures are complete and accurate
+- Additional field is concise and clear
+- Header file list is complete
+- Paths and naming are standard

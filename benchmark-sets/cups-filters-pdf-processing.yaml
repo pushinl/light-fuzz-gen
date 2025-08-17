@@ -1,0 +1,18 @@
+"functions":
+  - "name": "ppdFilterCUPSWrapper"
+    "signature": "int ppdFilterCUPSWrapper(int argc, char *argv[], cf_filter_filter_func_t filter_func, void *parameters, int *JobCanceled);"
+  - "name": "ppdFilterPDFToPDF"
+    "signature": "int ppdFilterPDFToPDF(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "ppdFilterPDFToPS"
+    "signature": "int ppdFilterPDFToPS(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterPDFToRaster"
+    "signature": "int cfFilterPDFToRaster(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+  - "name": "cfFilterMuPDFToPWG"
+    "signature": "int cfFilterMuPDFToPWG(int inputfd, int outputfd, int inputseekable, cf_filter_data_t *data, void *parameters);"
+"additional": "PDF文件处理和格式转换过滤器链，包括PDF到PostScript、Raster和PWG格式的转换。"
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_pdf_processing"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_pdf_processing.c"
+"target_header_files": ["cupsfilters/filter.h", "ppd/ppd-filter.h", "signal.h"]

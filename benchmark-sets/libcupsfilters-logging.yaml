@@ -1,0 +1,18 @@
+"functions":
+  - "name": "cfColordGetProfileForDeviceID"
+    "signature": "char * cfColordGetProfileForDeviceID(cf_filter_data_t *data, const char *device_id, const char **qualifier_tuple);"
+  - "name": "cfColordGetInhibitForDeviceID"
+    "signature": "int cfColordGetInhibitForDeviceID(cf_filter_data_t *data, const char *device_id);"
+  - "name": "cfColordGetProfileForDeviceID"
+    "signature": "char * cfColordGetProfileForDeviceID(cf_filter_data_t *data, const char *device_id, const char **qualifier_tuple);"
+  - "name": "cfColordGetInhibitForDeviceID"
+    "signature": "int cfColordGetInhibitForDeviceID(cf_filter_data_t *data, const char *device_id);"
+  - "name": "cfCUPSLogFunc"
+    "signature": "void cfCUPSLogFunc(void *data, cf_loglevel_t level, const char *message, ...);"
+"additional": "cfColordGetProfileForDeviceID: This function logs a warning message and returns NULL as it is not compiled with DBus support.; cfColordGetInhibitForDeviceID: This function logs a warning message indicating that it was not compiled with DBus support and returns 0.; cfColordGetProfileForDeviceID: This function logs a warning message and returns NULL as it is not compiled with DBus support."
+"language": "c"
+"project": "libcupsfilters"
+"target_name": "fuzz_logging"
+"target_repo": "https://github.com/OpenPrinting/libcupsfilters"
+"target_path": "/src/libcupsfilters/ossfuzz/fuzz_logging.c"
+"target_header_files": ["string.h", "stdio.h", "stdlib.h"]
