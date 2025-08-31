@@ -458,7 +458,7 @@ class AgentWorkflow:
         project_info = {
             "project": project_name,
             "language": "c",
-            "target_repo": target_repo or f"https://github.com/user/{project_name}"
+            "target_repo": target_repo
         }
         
         logger.info("Starting to generate YAML files...")

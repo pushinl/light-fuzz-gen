@@ -82,17 +82,17 @@ def main():
         
         # Output results
         if generated_files:
-            print(f"\n✅ Successfully generated {len(generated_files)} YAML configuration files:")
+            print(f"\n[SUCCESS] Successfully generated {len(generated_files)} YAML configuration files:")
             for file_path in generated_files:
-                print(f"   📄 {file_path}")
+                print(f"   [FILE] {file_path}")
             
-            print(f"\n📊 Statistics:")
+            print(f"\n[STATS] Statistics:")
             print(f"   - Project name: {project_name}")
             print(f"   - Generated files: {len(generated_files)}")
             print(f"   - Output directory: {args.output_dir}")
             
         else:
-            print("❌ No YAML files generated")
+            print("[ERROR] No YAML files generated")
             sys.exit(1)
             
     except KeyboardInterrupt:

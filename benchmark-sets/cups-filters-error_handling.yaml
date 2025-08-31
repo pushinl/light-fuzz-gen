@@ -1,0 +1,16 @@
+"functions":
+  - "name": "colord_get_profile_for_device_id"
+    "signature": "char * colord_get_profile_for_device_id(const char *device_id, const char **qualifier_tuple);"
+  - "name": "colord_get_inhibit_for_device_id"
+    "signature": "int colord_get_inhibit_for_device_id(const char *device_id);"
+  - "name": "colord_get_profile_for_device_id"
+    "signature": "char * colord_get_profile_for_device_id(const char *device_id, const char **qualifier_tuple);"
+  - "name": "colord_get_inhibit_for_device_id"
+    "signature": "int colord_get_inhibit_for_device_id(const char *device_id);"
+"additional": "colord_get_profile_for_device_id: This function prints a warning message to stderr indicating that it was not compiled with DBus support and returns NULL.; colord_get_inhibit_for_device_id: This function prints a warning message to stderr indicating that it was not compiled with DBus support and returns 0.; colord_get_profile_for_device_id: This function prints a warning message to stderr indicating that it was not compiled with DBus support and returns NULL."
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_error_handling"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_error_handling.c"
+"target_header_files": ["stdlib.h", "stdio.h", "string.h"]

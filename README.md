@@ -131,22 +131,22 @@ python run_agent.py cups-filters
 ## Workflow
 
 ```
-1. 📁 Read Repository Code
+1. Read Repository Code
    ├── Scan *.c, *.h, *.cpp, *.hpp files
    └── Filter invalid files
 
-2. 🔍 Function Extraction
+2. Function Extraction
    ├── Use regular expressions to identify function definitions
    ├── Extract function names, signatures, location information
    └── Get function body content
 
-3. 🤖 LLM Analysis
+3. LLM Analysis
    ├── Analyze function functionality and purpose
    ├── Classify functions
    ├── Identify dependencies between functions
    └── Evaluate fuzzing value
 
-4. 📝 YAML Generation
+4. YAML Generation
    ├── Group related functions by functionality
    ├── Design logical calling chains
    ├── Generate standard format YAML configurations
@@ -258,33 +258,3 @@ python run_agent.py repo-path --dry-run
    Error: No YAML files generated
    Solution: Check function analysis results, may need to adjust classification thresholds
    ```
-
-### Log Files
-
-The workflow generates an `agent_workflow.log` log file containing detailed execution information.
-
-## Example Output
-
-Running example for cups-filters project:
-
-```bash
-$ python run_agent.py cups-filters --project-name cups-filters
-
-2024-01-01 10:00:00 - INFO - Starting to process project: cups-filters
-2024-01-01 10:00:01 - INFO - Read 45 source code files in total
-2024-01-01 10:00:02 - INFO - Extracted 127 functions in total
-2024-01-01 10:00:05 - INFO - Analyzing function batch 1/5
-2024-01-01 10:00:15 - INFO - Starting to generate YAML files...
-2024-01-01 10:00:16 - INFO - Generated YAML file: benchmark-sets/cups-filters-filter_processing.yaml
-2024-01-01 10:00:16 - INFO - Generated YAML file: benchmark-sets/cups-filters-file_operations.yaml
-
-✅ Successfully generated 8 YAML configuration files:
-   📄 benchmark-sets/cups-filters-filter_processing.yaml
-   📄 benchmark-sets/cups-filters-file_operations.yaml
-   📄 benchmark-sets/cups-filters-format_conversion.yaml
-   📄 benchmark-sets/cups-filters-memory_management.yaml
-   📄 benchmark-sets/cups-filters-string_processing.yaml
-   📄 benchmark-sets/cups-filters-error_handling.yaml
-   📄 benchmark-sets/cups-filters-configuration_management.yaml
-   📄 benchmark-sets/cups-filters-initialization_cleanup.yaml
-```

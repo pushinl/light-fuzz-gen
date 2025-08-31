@@ -1,0 +1,14 @@
+"functions":
+  - "name": "compare_choices"
+    "signature": "int compare_choices(void *a, void *b, void *user_data);"
+  - "name": "compare_options"
+    "signature": "int compare_options(void *a, void *b, void *user_data);"
+  - "name": "add_choice_to_array"
+    "signature": "ipp_choice_strings_t * add_choice_to_array(char *name, char *human_readable, char *opt_name, cups_array_t *options);"
+"additional": "compare_choices: This function compares two choices based on their names using a case-insensitive comparison.; compare_options: This function compares the names of two options in a case-insensitive manner.; add_choice_to_array: This function adds a choice to an array of options, creating a new choice if it does not already exist."
+"language": "c"
+"project": "cups-filters"
+"target_name": "fuzz_data_manipulation"
+"target_repo": "https://github.com/OpenPrinting/cups-filters"
+"target_path": "/src/cups-filters/ossfuzz/fuzz_data_manipulation.c"
+"target_header_files": ["stdlib.h", "stdio.h", "string.h"]
